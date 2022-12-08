@@ -32,12 +32,9 @@ io.on("connection", (socket) => {
 
   socket.on("send_arrivalPoint", (data) => sender("get_arrivalPoint", data));
 
-  socket.on("send_arrivalTime", (data) => send("get_arrivalTime", data));
+  socket.on("send_arrivalTime", (data) => sender("get_arrivalTime", data));
 
-  socket.on("send_myData", (data) => {
-    console.log(socket.data.room, data);
-    sender("get_data", data);
-  });
+  socket.on("send_myData", (data) => sender("get_data", data));
 });
 
 httpServer.listen(9999, () => {
